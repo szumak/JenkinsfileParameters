@@ -5,7 +5,7 @@ def versions
 
 node {
    sh 'pwd'
-   nodes = sh (script: './list_nodes.sh', returnStdout: true).trim()
+   nodes = sh (script: '../parameters_JenkinsfileParameters@script/list_nodes.sh', returnStdout: true).trim()
 }
 
 pipeline {
