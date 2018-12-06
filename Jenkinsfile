@@ -40,11 +40,8 @@ agent any
         stage("build") {
             steps {
                 script {
-                    build(job: "builder-job",
-                        parameters:
-                        [string(name: 'Nodes', value: "${params.Nodes}"),
-                        string(name: 'Versions', value: "${versions}"),
-                        ])
+                        echo "Nodes: ${params.Nodes}"
+                        echo "Versions: ${versions}"
                 }
             }
         }
