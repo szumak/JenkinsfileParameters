@@ -35,6 +35,9 @@ agent any
                          version_collection = sh (script: "sh list_versions.sh $chosen_node", returnStdout: true).trim()
                     }
                         versions = input message: 'Choose testload version!', ok: 'SET', parameters: [choice(name: 'TESTLOAD_VERSION', choices: "${version_collection}", description: '')]
+                }
+           }
+        }
 
 
         stage("build") {
