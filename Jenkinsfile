@@ -4,9 +4,8 @@ def nodes
 def versions
 
 node {
-    dir('/var/jenkins_home/workspace/parameters_JenkinsfileParameters') {
-        nodes = sh (script: 'sh list_nodes.sh', returnStdout: true).trim()
-    }
+   sh (script: 'pwd', returnStdout: true).trim()
+   nodes = sh (script: 'sh list_nodes.sh', returnStdout: true).trim()
 }
 
 pipeline {
