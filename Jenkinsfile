@@ -4,7 +4,7 @@ def nodes
 def versions
 
 node {
-    dir('./') {
+    dir('/var/jenkins_home/workspace/parameters_JenkinsfileParameters') {
         nodes = sh (script: 'sh list_nodes.sh', returnStdout: true).trim()
     }
 }
@@ -31,7 +31,7 @@ agent any
                 script {
                     def version_collection
                     def chosen_node = "${params.Nodes}"
-                    dir('./') {
+                    dir('/var/jenkins_home/workspace/parameters_JenkinsfileParameters') {
                          version_collection = sh (script: "sh list_versions.sh $chosen_node", returnStdout: true).trim()
                     }
                         versions = input message: 'Choose testload version!', ok: 'SET', parameters: [choice(name: 'TESTLOAD_VERSION', choices: "${version_collection}", description: '')]
