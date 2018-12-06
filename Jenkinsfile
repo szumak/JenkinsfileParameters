@@ -4,7 +4,7 @@ def nodes
 def versions
 
 node {
-   sh (script: 'pwd', returnStdout: true).trim()
+   sh 'pwd'
    nodes = sh (script: 'sh list_nodes.sh', returnStdout: true).trim()
 }
 
